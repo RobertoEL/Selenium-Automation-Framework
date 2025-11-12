@@ -77,8 +77,8 @@ pip install -r requirements.txt
 ### 4️⃣ Run Tests
 pytest --html=reports/test_report.html
 
-To run with Allure reporting:
-pytest --alluredir=reports/allure-results
+To run with Allure reporting:  
+pytest --alluredir=reports/allure-results  
 allure serve reports/allure-results
 
 ---
@@ -88,45 +88,45 @@ allure serve reports/allure-results
 ### Test: Login Page (Valid Credentials)
 from pages.login_page import LoginPage
 
-def test_valid_login(browser):
-    login_page = LoginPage(browser)
-    login_page.open()
-    login_page.login("tomsmith", "SuperSecretPassword!")
-    assert login_page.is_success_message_displayed(), "Login success message not found"
+def test_valid_login(browser):  
+    login_page = LoginPage(browser)  
+    login_page.open()  
+    login_page.login("tomsmith", "SuperSecretPassword!")  
+    assert login_page.is_success_message_displayed(), "Login success message not found"  
 
 ### Test: Checkbox Interaction
 from pages.checkbox_page import CheckboxPage
 
-def test_checkbox_selection(browser):
-    checkbox_page = CheckboxPage(browser)
-    checkbox_page.open()
-    checkbox_page.select_checkbox(1)
+def test_checkbox_selection(browser):  
+    checkbox_page = CheckboxPage(browser)  
+    checkbox_page.open()  
+    checkbox_page.select_checkbox(1)  
     assert checkbox_page.is_checkbox_selected(1)
 
 ---
 
 ## 📈 CI/CD Integration
 
-This framework integrates easily with GitHub Actions or Jenkins.
+This framework integrates easily with GitHub Actions or Jenkins.  
 Example GitHub Actions workflow (.github/workflows/selenium-tests.yml):
 
 name: Selenium Tests
 
 on: [push, pull_request]
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run Selenium tests
-        run: pytest --html=reports/test_report.html
+jobs:  
+  test:  
+    runs-on: ubuntu-latest  
+    steps:  
+      - uses: actions/checkout@v3  
+      - name: Set up Python  
+        uses: actions/setup-python@v4  
+        with:  
+          python-version: '3.10'  
+      - name: Install dependencies  
+        run: pip install -r requirements.txt  
+      - name: Run Selenium tests  
+        run: pytest --html=reports/test_report.html  
 
 ---
 
@@ -142,8 +142,8 @@ jobs:
 ## 👤 Author
 
 [Roberto Esparza]
-Software QA Engineer | Python Developer | Data Enthusiast
-📫 [phd.roberto.esparza@gmail.com](mailto:phd.roberto.esparza@gmail.com)
+Software QA Engineer | Python Developer | Data Enthusiast  
+📫 [phd.roberto.esparza@gmail.com](mailto:phd.roberto.esparza@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/robertoesparzalepe/) • [Portfolio / Website](https://github.com/RobertoEL)
 
 ---
