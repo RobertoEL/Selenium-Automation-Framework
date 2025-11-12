@@ -53,9 +53,9 @@ selenium-automation-framework/
 
 ## 🧰 Tech Stack
 
-Language: Python 3.10+
-Libraries: Selenium, pytest, pytest-html, allure-pytest
-Tools: Git, VS Code, ChromeDriver, GitHub Actions
+Language: Python 3.10+  
+Libraries: Selenium, pytest, pytest-html, allure-pytest  
+Tools: Git, VS Code, ChromeDriver, GitHub Actions  
 Design Pattern: Page Object Model (POM) + Data-driven testing
 
 ---
@@ -63,12 +63,12 @@ Design Pattern: Page Object Model (POM) + Data-driven testing
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the Repository
-git clone https://github.com/RobertoEL/Selenium-Automation-Framework.git
+git clone https://github.com/RobertoEL/Selenium-Automation-Framework.git  
 cd Selenium-Automation-Framework
 
 ### 2️⃣ Create a Virtual Environment
-python -m venv venv
-source venv/bin/activate     # Mac/Linux
+python -m venv venv  
+source venv/bin/activate     # Mac/Linux  
 venv\Scripts\activate        # Windows
 
 ### 3️⃣ Install Dependencies
