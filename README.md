@@ -20,34 +20,34 @@ This project demonstrates **Page Object Model (POM)** architecture, **data-drive
 
 ## 🧱 Project Structure
 
-selenium-automation-framework/
-│
-├── config/
-│   ├── config.json            # Base URL, browser type, timeouts
-│
-├── pages/
-│   ├── base_page.py           # Common WebDriver actions
-│   ├── login_page.py          # Login page elements and methods
-│   ├── checkbox_page.py       # Checkbox interaction page
-│   ├── dropdown_page.py       # Dropdown selection page
-│   ├── upload_page.py         # File upload page
-│
-├── tests/
-│   ├── test_login.py          # Valid/invalid login tests
-│   ├── test_checkboxes.py     # Checkbox selection tests
-│   ├── test_dropdown.py       # Dropdown tests
-│   ├── test_upload.py         # File upload test
-│
-├── utils/
-│   ├── driver_factory.py      # WebDriver initialization and teardown
-│   ├── logger.py              # Logging configuration
-│   ├── screenshot.py          # Screenshot on failure
-│
-├── reports/
-│   ├── test_report.html       # Pytest HTML report output
-│
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project documentation
+selenium-automation-framework/  
+│  
+├── config/  
+│   ├── config.json            # Base URL, browser type, timeouts  
+│  
+├── pages/  
+│   ├── base_page.py           # Common WebDriver actions  
+│   ├── login_page.py          # Login page elements and methods  
+│   ├── checkbox_page.py       # Checkbox interaction page  
+│   ├── dropdown_page.py       # Dropdown selection page  
+│   ├── upload_page.py         # File upload page  
+│  
+├── tests/  
+│   ├── test_login.py          # Valid/invalid login tests  
+│   ├── test_checkboxes.py     # Checkbox selection tests  
+│   ├── test_dropdown.py       # Dropdown tests  
+│   ├── test_upload.py         # File upload test  
+│  
+├── utils/  
+│   ├── driver_factory.py      # WebDriver initialization and teardown  
+│   ├── logger.py              # Logging configuration  
+│   ├── screenshot.py          # Screenshot on failure  
+│  
+├── reports/  
+│   ├── test_report.html       # Pytest HTML report output  
+│  
+├── requirements.txt           # Python dependencies  
+└── README.md                  # Project documentation  
 
 ---
 
