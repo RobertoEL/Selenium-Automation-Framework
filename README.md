@@ -141,7 +141,7 @@ jobs:
 
 ## 👤 Author
 
-[Roberto Esparza]
+[Roberto Esparza]  
 Software QA Engineer | Python Developer | Data Enthusiast  
 📫 [phd.roberto.esparza@gmail.com](mailto:phd.roberto.esparza@gmail.com)  
 🔗 [LinkedIn](https://www.linkedin.com/in/robertoesparzalepe/) • [Portfolio / Website](https://github.com/RobertoEL)
