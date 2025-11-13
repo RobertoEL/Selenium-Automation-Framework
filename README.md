@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
 [![Selenium](https://img.shields.io/badge/Selenium-Automation-orange)](https://www.selenium.dev/)
-[![GitHub Actions](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/actions)
+[![GitHub Actions](https://github.com/RobertoEL/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)](https://github.com/RobertoEL/selenium-automation-framework/actions)
 
 ---
 
@@ -130,7 +130,7 @@ allure open reports/allure-report
 - Generates **HTML** and **Allure** reports and uploads as artifacts  
 
 **Workflow Badge:**  
-![GitHub Actions](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)
+![GitHub Actions](https://github.com/RobertoEL/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)
 
 ---
 
