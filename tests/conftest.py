@@ -1,8 +1,43 @@
+# tests/conftest.py
+
 import pytest
+import json
+import os
+from datetime import datetime
+from selenium.common.exceptions import WebDriverException
 from utils.driver_factory import create_driver
+from utils.logger import create_logger
+from utils.screenshot import take_screenshot
+
+# Load configuration from config/config.json
+with open("config/config.json") as f:
+    config = json.load(f)
+
+logger = create_logger()
 
 @pytest.fixture
-def browser():
-    driver = create_driver("chrome")
+def browser(request):
+    browser_name = config.get("browser", "chrome")
+    timeout = config.get("timeout", 10)
+
+    logger.info(f"Starting browser: {browser_name}")
+    driver = create_driver(browser_name)
+    driver.implicitly_wait(timeout)
+
     yield driver
+
+    # Take screenshot if test failed
+    if request.node.rep_call.failed:
+        test_name = request.node.name
+        screenshot_path = take_screenshot(driver, test_name)
+        logger.info(f"Screenshot saved: {screenshot_path}")
+
+    logger.info("Closing browser")
     driver.quit()
+
+# Hook to capture test outcome for screenshot
+@pytest.hookimpl(hookwrapper=True, tryfirst=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+    setattr(item, "rep_" + rep.when, rep)
