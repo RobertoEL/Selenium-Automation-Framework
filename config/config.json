@@ -1,1 +1,10 @@
-
+{
+    "base_url": "https://the-internet.herokuapp.com",
+    "browser": "chrome",
+    "login": {
+        "username": "tomsmith",
+        "password": "SuperSecretPassword!"
+    },
+    "timeout": 10,
+    "report_path": "reports/test_report.html"
+}
