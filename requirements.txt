@@ -1,5 +1,5 @@
 # Selenium for browser automation
-selenium==5.11.2
+selenium          # always pulls the latest stable version
 
 # Pytest for test execution
 pytest==8.4.3
