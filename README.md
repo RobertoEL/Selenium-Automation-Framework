@@ -1,151 +1,150 @@
-# 🧪 Selenium Automation Framework – The Internet (Herokuapp)
+# Selenium Automation Framework
 
-An end-to-end **web automation framework** built with **Python, Selenium, and pytest**, designed to automate functional tests for [The Internet](https://the-internet.herokuapp.com/) — a web application created by Elemental Selenium for QA practice.
-
-This project demonstrates **Page Object Model (POM)** architecture, **data-driven testing**, and **automated reporting**, providing a clean, scalable example of professional QA automation design.
-
----
-
-## 🚀 Features
-
-- ✅ Page Object Model (POM) architecture for scalable, maintainable test cases  
-- 🧠 Covers multiple scenarios: Login, Dropdowns, Checkboxes, File Uploads, Alerts, and Dynamic Elements  
-- ⚙️ Configurable browser options (Chrome, Firefox, Edge)  
-- 📊 HTML and Allure test report generation  
-- 🧩 Data-driven test examples using JSON or CSV  
-- 🔁 CI/CD-ready with GitHub Actions integration  
-- 📸 Automatic screenshot capture on test failure  
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
+[![Selenium](https://img.shields.io/badge/Selenium-Automation-orange)](https://www.selenium.dev/)
+[![GitHub Actions](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/actions)
 
 ---
 
-## 🧱 Project Structure
+## Table of Contents
+
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Running Tests Locally](#running-tests-locally)
+- [Reports](#reports)
+- [CI/CD Integration](#cicd-integration)
+- [Contributing](#contributing)
+
+---
+
+## Description
+
+This repository contains a **Selenium Automation Framework** for web application testing. It is designed with **Page Object Model (POM)**, **Pytest**, **logging**, **screenshots on failure**, and **config-driven setup**.  
+The framework currently targets [The Internet](https://the-internet.herokuapp.com/) demo website, including login and checkbox functionality.  
+
+It also includes CI/CD automation using **GitHub Actions**, generating **HTML** and **Allure** reports for test execution results.
+
+---
+
+## Tech Stack
+
+- **Programming Language:** Python 3.10  
+- **Test Automation:** Selenium WebDriver, Pytest  
+- **Data Handling / Config:** JSON for test configuration  
+- **Reporting:** pytest-html, Allure  
+- **Browser Drivers:** Chrome (primary), Firefox, Edge  
+- **Utilities:** Logging, Screenshots, Driver Factory  
+- **CI/CD:** GitHub Actions  
+
+---
+
+## Project Structure
 
 selenium-automation-framework/  
 │  
 ├── config/  
-│   ├── config.json            # Base URL, browser type, timeouts  
-│  
+│ └── config.json # Central configuration  
 ├── pages/  
-│   ├── base_page.py           # Common WebDriver actions  
-│   ├── login_page.py          # Login page elements and methods  
-│   ├── checkbox_page.py       # Checkbox interaction page  
-│   ├── dropdown_page.py       # Dropdown selection page  
-│   ├── upload_page.py         # File upload page  
-│  
+│ ├── base_page.py # Base Page class  
+│ ├── login_page.py # Login page object  
+│ └── checkbox_page.py # Checkbox page object  
 ├── tests/  
-│   ├── test_login.py          # Valid/invalid login tests  
-│   ├── test_checkboxes.py     # Checkbox selection tests  
-│   ├── test_dropdown.py       # Dropdown tests  
-│   ├── test_upload.py         # File upload test  
-│  
+│ ├── conftest.py # Pytest fixtures and setup  
+│ ├── test_login.py  
+│ └── test_checkboxes.py  
 ├── utils/  
-│   ├── driver_factory.py      # WebDriver initialization and teardown  
-│   ├── logger.py              # Logging configuration  
-│   ├── screenshot.py          # Screenshot on failure  
-│  
+│ ├── driver_factory.py # Browser setup  
+│ ├── logger.py # Logging utility  
+│ └── screenshot.py # Screenshot utility  
 ├── reports/  
-│   ├── test_report.html       # Pytest HTML report output  
-│  
-├── requirements.txt           # Python dependencies  
-└── README.md                  # Project documentation  
+│ ├── test_report.html # HTML test report  
+│ └── allure-report/ # Allure report folder  
+├── .github/workflows/  
+│ └── selenium-tests.yml # GitHub Actions workflow  
+├── requirements.txt  
+└── README.md  
 
----
+## Installation
 
-## 🧰 Tech Stack
+1. Clone the repository:
 
-Language: Python 3.10+  
-Libraries: Selenium, pytest, pytest-html, allure-pytest  
-Tools: Git, VS Code, ChromeDriver, GitHub Actions  
-Design Pattern: Page Object Model (POM) + Data-driven testing
+```bash
+git clone https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework.git
+cd selenium-automation-framework
+```
 
----
+2. Create a virtual environment and activate it:
 
-## ⚙️ Setup Instructions
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate      # Windows
+```
 
-### 1️⃣ Clone the Repository
-git clone https://github.com/RobertoEL/Selenium-Automation-Framework.git  
-cd Selenium-Automation-Framework
+3. Install dependencies:
 
-### 2️⃣ Create a Virtual Environment
-python -m venv venv  
-source venv/bin/activate     # Mac/Linux  
-venv\Scripts\activate        # Windows
-
-### 3️⃣ Install Dependencies
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-### 4️⃣ Run Tests
-pytest --html=reports/test_report.html
+## Running Tests Locally
 
-To run with Allure reporting:  
-pytest --alluredir=reports/allure-results  
-allure serve reports/allure-results
+1. Run all tests and generate an **HTML report**:
 
----
+```bash
+pytest --html=reports/test_report.html --self-contained-html
+```
 
-## 🧪 Example Test Case
+2. Open the HTML report in your browser:
 
-### Test: Login Page (Valid Credentials)
-from pages.login_page import LoginPage
+```bash
+open reports/test_report.html   # macOS/Linux
+start reports\test_report.html  # Windows
+```
 
-def test_valid_login(browser):  
-    login_page = LoginPage(browser)  
-    login_page.open()  
-    login_page.login("tomsmith", "SuperSecretPassword!")  
-    assert login_page.is_success_message_displayed(), "Login success message not found"  
+3. Screenshots for failed tests will be automatically saved in:
 
-### Test: Checkbox Interaction
-from pages.checkbox_page import CheckboxPage
+```bash
+reports/screenshots/
+```
 
-def test_checkbox_selection(browser):  
-    checkbox_page = CheckboxPage(browser)  
-    checkbox_page.open()  
-    checkbox_page.select_checkbox(1)  
-    assert checkbox_page.is_checkbox_selected(1)
+## Reports
 
----
+- **HTML Report:** `reports/test_report.html`  
+- **Allure Report:** `reports/allure-report/index.html`  
+  Generate manually (if needed):
 
-## 📈 CI/CD Integration
+```bash
+pytest --alluredir=reports/allure-results
+allure generate reports/allure-results -o reports/allure-report --clean
+allure open reports/allure-report
+```
 
-This framework integrates easily with GitHub Actions or Jenkins.  
-Example GitHub Actions workflow (.github/workflows/selenium-tests.yml):
+## CI/CD Integration
 
-name: Selenium Tests
+- GitHub Actions workflow: `.github/workflows/selenium-tests.yml`  
+- Triggered automatically on `push` or `pull_request` to `main`  
+- Generates **HTML** and **Allure** reports and uploads as artifacts  
 
-on: [push, pull_request]
-
-jobs:  
-  test:  
-    runs-on: ubuntu-latest  
-    steps:  
-      - uses: actions/checkout@v3  
-      - name: Set up Python  
-        uses: actions/setup-python@v4  
-        with:  
-          python-version: '3.10'  
-      - name: Install dependencies  
-        run: pip install -r requirements.txt  
-      - name: Run Selenium tests  
-        run: pytest --html=reports/test_report.html  
+**Workflow Badge:**  
+![GitHub Actions](https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework/workflows/Selenium%20Tests/badge.svg)
 
 ---
 
-## 🧩 Future Enhancements
+## Contributing
 
-- Parallel test execution (pytest-xdist)
-- Visual regression testing with image comparison
-- Add API layer testing (Requests + pytest)
-- Power BI integration for test metrics visualization
-
----
-
-## 👤 Author
-
-[Roberto Esparza]  
-Software QA Engineer | Python Developer | Data Enthusiast  
-📫 [phd.roberto.esparza@gmail.com](mailto:phd.roberto.esparza@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/robertoesparzalepe/) • [Portfolio / Website](https://github.com/RobertoEL)
+1. Fork the repository  
+2. Create a feature branch: `git checkout -b feature/my-feature`  
+3. Commit your changes: `git commit -m "Add feature"`  
+4. Push to the branch: `git push origin feature/my-feature`  
+5. Open a pull request  
 
 ---
 
-⭐ "Automation is the bridge between precision, performance, and confidence in every release."
+## Notes
+
+- Update `<YOUR_GITHUB_USERNAME>` in badges and clone URL to your GitHub username.  
+- Browser versions and drivers must match locally and on CI.
