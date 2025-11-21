@@ -6,7 +6,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import pytest
 import json
-import os
 from datetime import datetime
 from selenium.common.exceptions import WebDriverException
 from utils.driver_factory import create_driver
