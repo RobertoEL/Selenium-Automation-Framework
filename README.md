@@ -48,12 +48,12 @@ selenium-automation-framework/
 │ └── config.json # Central configuration  
 ├── pages/  
 │ ├── base_page.py # Base Page class  
-│ ├── login_page.py # Login page object  
-│ └── checkbox_page.py # Checkbox page object  
+│ ├── checkbox_page.py # Checkbox page object  
+│ └── login_page.py # Login page object
 ├── tests/  
 │ ├── conftest.py # Pytest fixtures and setup  
-│ ├── test_login.py  
-│ └── test_checkboxes.py  
+│ ├── test_checkboxes.py  
+│ └── test_login.py  
 ├── utils/  
 │ ├── driver_factory.py # Browser setup  
 │ ├── logger.py # Logging utility  
