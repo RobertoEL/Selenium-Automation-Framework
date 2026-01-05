@@ -71,7 +71,7 @@ selenium-automation-framework/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/selenium-automation-framework.git
+git clone https://github.com/RobertoEL/selenium-automation-framework.git
 cd selenium-automation-framework
 ```
 
